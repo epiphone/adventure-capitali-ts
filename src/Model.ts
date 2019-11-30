@@ -10,6 +10,7 @@ export type Action =
   | { type: 'collect-income-start'; index: number }
   | { type: 'collect-income-done'; index: number }
   | { type: 'upgrade-business'; index: number }
+  | { type: 'hire-manager'; index: number }
 
 export type Dispatch = ReactDispatch<Action | Thunk<State, Action>>
 

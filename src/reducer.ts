@@ -31,6 +31,13 @@ export default function reducer(state: State, action: Action): State {
 
         break
       }
+      case 'hire-manager': {
+        const business = draft.businesses[action.index]
+
+        draft.capital -= business.managerPrice
+        business.hasManager = true
+        break
+      }
     }
   })
 }
