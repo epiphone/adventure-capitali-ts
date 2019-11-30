@@ -7576,6 +7576,10 @@ react-error-overlay@6.1.0-next.62+3d6d0a1f:
   version "6.1.0-next.62"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.1.0-next.62.tgz#d4cacfaab93c35c881fe745eb2fe5bc7ae69dc0e"
 
+react-hook-thunk-reducer@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-hook-thunk-reducer/-/react-hook-thunk-reducer-0.2.1.tgz#49c9aa4db9d425853e00aa2dbeeca0242f838141"
+
 react-is@^16.8.1, react-is@^16.8.4:
   version "16.10.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.10.1.tgz#0612786bf19df406502d935494f0450b40b8294f"

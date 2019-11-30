@@ -1,9 +1,9 @@
-import React, { Dispatch } from 'react'
+import React from 'react'
 import * as Model from '../Model'
 import Business from './Business'
 
 interface Props {
-  dispatch: Dispatch<Model.Action>
+  dispatch: Model.Dispatch
   state: Model.State
 }
 

@@ -1,3 +1,6 @@
+import { Dispatch as ReactDispatch } from 'react'
+import { Thunk } from 'react-hook-thunk-reducer'
+
 export interface State {
   capital: number
   businesses: Business[]
@@ -7,6 +10,8 @@ export type Action =
   | { type: 'collect-income-start'; index: number }
   | { type: 'collect-income-done'; index: number }
   | { type: 'upgrade-business'; index: number }
+
+export type Dispatch = ReactDispatch<Action | Thunk<State, Action>>
 
 export interface Business {
   name: string
