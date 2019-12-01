@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import useThunkReducer from 'react-hook-thunk-reducer'
 import * as action from '../action'
-import { initialState } from '../Model'
+import initialState from '../initialState'
 import reducer from '../reducer'
 import { formatCurrency } from '../util'
 import './App.css'
