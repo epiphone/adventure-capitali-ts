@@ -1,8 +1,9 @@
-import { State } from './Model'
+import { Action, PRICE_LEVEL_MULTIPLIER, State } from './Model'
 import reducer from './reducer'
 
 const state: State = {
-  capital: 0,
+  capital: 10,
+  upgradeMultiplier: 1,
   businesses: [
     {
       name: 'Lemonade Stand',
@@ -25,22 +26,33 @@ const state: State = {
 
 describe('upgrade business', () => {
   it('does nothing upon insufficient capital', () => {
-    const newState = reducer(state, { type: 'upgrade-business', index: 0 })
+    const action: Action = {
+      type: 'upgrade-business',
+      index: 0,
+      multiplier: 1,
+      price: state.capital + 1
+    }
+    const newState = reducer(state, action)
 
     expect(newState.capital).toEqual(state.capital)
     expect(newState.businesses[0].level).toEqual(state.businesses[0].level)
   })
 
   it('increases business price and reduces capital on successful upgrade', () => {
-    const newState = reducer(
-      { ...state, capital: 10 },
-      { type: 'upgrade-business', index: 0 }
-    )
+    const action: Action = {
+      type: 'upgrade-business',
+      index: 0,
+      multiplier: 2,
+      price: 8
+    }
+    const newState = reducer(state, action)
 
-    expect(newState.capital).toEqual(10 - state.businesses[0].price)
-    expect(newState.businesses[0].level).toEqual(state.businesses[0].level + 1)
-    expect(newState.businesses[0].price).toBeGreaterThan(
-      state.businesses[0].price
+    expect(newState.capital).toEqual(state.capital - action.price)
+    expect(newState.businesses[0].level).toEqual(
+      state.businesses[0].level + action.multiplier
+    )
+    expect(newState.businesses[0].price).toEqual(
+      Math.round(action.price * PRICE_LEVEL_MULTIPLIER)
     )
   })
 })

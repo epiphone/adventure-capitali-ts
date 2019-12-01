@@ -1,6 +1,7 @@
 import React from 'react'
-import * as action from '../action'
-import * as Model from '../Model'
+import * as action from '../../action'
+import * as Model from '../../Model'
+import UpgradeButton from './UpgradeButton'
 
 interface Props {
   dispatch: Model.Dispatch
@@ -17,7 +18,6 @@ const Business: React.FC<Props> = ({ state, dispatch, index }) => {
     !business.hasManager &&
     business.level > 0 &&
     state.capital >= business.managerPrice
-  const canUpgrade = state.capital >= business.price
 
   function collectIncome() {
     if (canCollectIncome) {
@@ -31,18 +31,10 @@ const Business: React.FC<Props> = ({ state, dispatch, index }) => {
     }
   }
 
-  function upgrade() {
-    if (canUpgrade) {
-      dispatch({ type: 'upgrade-business', index })
-    }
-  }
-
   return (
     <div>
-      {business.name} | level: {business.level} | price: {business.price}
-      <button disabled={!canUpgrade} onClick={upgrade}>
-        Upgrade
-      </button>
+      {business.name} | level: {business.level}
+      <UpgradeButton dispatch={dispatch} index={index} state={state} />
       <button disabled={!canCollectIncome} onClick={collectIncome}>
         Collect income ({business.level * business.income})
       </button>
