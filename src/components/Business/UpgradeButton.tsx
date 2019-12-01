@@ -2,14 +2,15 @@ import React from 'react'
 import * as Model from '../../Model'
 
 interface Props {
+  business: Model.Business
+  capital: number
   dispatch: Model.Dispatch
-  state: Model.State
   index: number
+  upgradeMultiplier: Model.UpgradeMultiplier
 }
 
-const UpgradeButton: React.FC<Props> = ({ state, dispatch, index }) => {
-  const { capital, upgradeMultiplier } = state
-  const business = state.businesses[index]
+const UpgradeButton: React.FC<Props> = props => {
+  const { business, capital, dispatch, index, upgradeMultiplier } = props
 
   const { multiplier, price } = resolveMultiplier(
     business.price,
