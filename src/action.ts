@@ -1,26 +1,38 @@
-import { Thunk } from 'react-hook-thunk-reducer'
+import { Thunk as ThunkAction } from 'react-hook-thunk-reducer'
 import { Action, State } from './Model'
 
-export function collectIncome(index: number): Thunk<State, Action> {
+type Thunk = ThunkAction<State, Action>
+
+export function startCollectingIncome(index: number): Thunk {
   return (dispatch, getState) => {
     const business = getState().businesses[index]
 
     dispatch({ type: 'collect-income-start', index })
     setTimeout(
-      () => dispatch({ type: 'collect-income-done', index }),
+      () => dispatch(finishCollectingIncome(index)),
       business.incomeCooldownDuration
     )
   }
 }
 
-export function runManagers(): Thunk<State, Action> {
+function finishCollectingIncome(index: number): Thunk {
   return (dispatch, getState) => {
-    const businesses = getState().businesses
+    dispatch({ type: 'collect-income-done', index })
 
-    businesses.forEach((business, index) => {
-      if (business.hasManager && !business.collectingIncome) {
-        dispatch(collectIncome(index))
-      }
-    })
+    const business = getState().businesses[index]
+    if (business.hasManager) {
+      dispatch(startCollectingIncome(index))
+    }
+  }
+}
+
+export function hireManager(index: number): Thunk {
+  return (dispatch, getState) => {
+    dispatch({ type: 'hire-manager', index })
+
+    const business = getState().businesses[index]
+    if (!business.collectingIncome) {
+      dispatch(startCollectingIncome(index))
+    }
   }
 }

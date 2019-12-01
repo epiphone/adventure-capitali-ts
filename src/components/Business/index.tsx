@@ -21,13 +21,13 @@ const Business: React.FC<Props> = ({ state, dispatch, index }) => {
 
   function collectIncome() {
     if (canCollectIncome) {
-      dispatch(action.collectIncome(index))
+      dispatch(action.startCollectingIncome(index))
     }
   }
 
   function hireManager() {
     if (canHireManager) {
-      dispatch({ type: 'hire-manager', index })
+      dispatch(action.hireManager(index))
     }
   }
 
