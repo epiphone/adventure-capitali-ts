@@ -1,6 +1,7 @@
 import React from 'react'
 import * as Model from '../../Model'
 import { formatCurrency } from '../../util'
+import BouncyLabel from '../BouncyLabel'
 import TileButton from '../TileButton'
 
 interface Props {
@@ -30,7 +31,7 @@ const UpgradeButton: React.FC<Props> = props => {
   return (
     <TileButton disabled={!canUpgrade} onClick={upgrade} role="secondary">
       <b>BUY x{multiplier}</b>
-      <h2>{business.level}</h2>
+      <BouncyLabel>{business.level}</BouncyLabel>
       <b>{formatCurrency(price)}</b>
     </TileButton>
   )

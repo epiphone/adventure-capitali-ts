@@ -1,0 +1,50 @@
+.BouncyLabel {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.BouncyLabel-animate {
+  animation: scale-easeOutBounce 0.5s;
+}
+
+@keyframes scale-easeOutBounce {
+  0% {
+    transform: scale(0);
+  }
+
+  12% {
+    transform: scale(0.15);
+  }
+
+  24% {
+    transform: scale(0.54);
+  }
+
+  36% {
+    transform: scale(1.2);
+  }
+
+  54% {
+    transform: scale(0.85);
+  }
+
+  74% {
+    transform: scale(1.04);
+  }
+
+  82% {
+    transform: scale(0.94);
+  }
+
+  92% {
+    transform: scale(0.99);
+  }
+
+  96% {
+    transform: scale(0.98);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

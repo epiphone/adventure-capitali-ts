@@ -2,6 +2,7 @@ import React from 'react'
 import * as action from '../../action'
 import * as Model from '../../Model'
 import { formatCurrency } from '../../util'
+import BouncyLabel from '../BouncyLabel'
 import TileButton from '../TileButton'
 
 interface Props {
@@ -29,13 +30,17 @@ const CollectIncomeButton: React.FC<Props> = props => {
     >
       {business.hasManager ? (
         <>
-          <h2>{formatCurrency(business.level * business.income)}</h2>
+          <BouncyLabel>
+            {formatCurrency(business.level * business.income)}
+          </BouncyLabel>
           <b>MANAGED</b>
         </>
       ) : (
         <>
           <b>COLLECT</b>
-          <h2>{formatCurrency(business.level * business.income)}</h2>
+          <BouncyLabel>
+            {formatCurrency(business.level * business.income)}
+          </BouncyLabel>
           <b>INCOME</b>
         </>
       )}
