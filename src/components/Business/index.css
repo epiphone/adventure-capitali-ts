@@ -1,0 +1,25 @@
+.Business {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.Business-forSale {
+  margin-top: 22px;
+}
+
+.Business-locked {
+  opacity: 0.8;
+}
+
+.Business-header {
+  height: 22px;
+}
+
+.Business-body {
+  display: flex;
+  height: 100%;
+}
+

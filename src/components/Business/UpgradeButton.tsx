@@ -1,5 +1,7 @@
 import React from 'react'
 import * as Model from '../../Model'
+import { formatCurrency } from '../../util'
+import TileButton from '../TileButton'
 
 interface Props {
   business: Model.Business
@@ -17,7 +19,7 @@ const UpgradeButton: React.FC<Props> = props => {
     capital,
     upgradeMultiplier
   )
-  const canUpgrade = capital >= business.price
+  const canUpgrade = capital >= price
 
   function upgrade() {
     if (canUpgrade) {
@@ -26,9 +28,11 @@ const UpgradeButton: React.FC<Props> = props => {
   }
 
   return (
-    <button disabled={!canUpgrade} onClick={upgrade}>
-      Upgrade x{multiplier} ${price}
-    </button>
+    <TileButton disabled={!canUpgrade} onClick={upgrade} role="secondary">
+      <b>BUY x{multiplier}</b>
+      <h2>{business.level}</h2>
+      <b>{formatCurrency(price)}</b>
+    </TileButton>
   )
 }
 

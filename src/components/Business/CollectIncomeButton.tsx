@@ -1,6 +1,8 @@
 import React from 'react'
 import * as action from '../../action'
 import * as Model from '../../Model'
+import { formatCurrency } from '../../util'
+import TileButton from '../TileButton'
 
 interface Props {
   business: Model.Business
@@ -20,10 +22,20 @@ const CollectIncomeButton: React.FC<Props> = props => {
   }
 
   return (
-    <button disabled={!canCollectIncome} onClick={collectIncome}>
-      Collect income ${business.level * business.income}, (
-      {business.incomeCooldownDuration}ms)
-    </button>
+    <TileButton disabled={!canCollectIncome} onClick={collectIncome}>
+      {business.hasManager ? (
+        <>
+          <h2>{formatCurrency(business.level * business.income)}</h2>
+          <b>MANAGED</b>
+        </>
+      ) : (
+        <>
+          <b>COLLECT</b>
+          <h2>{formatCurrency(business.level * business.income)}</h2>
+          <b>INCOME</b>
+        </>
+      )}
+    </TileButton>
   )
 }
 

@@ -1,6 +1,8 @@
 import React from 'react'
 import * as action from '../../action'
 import * as Model from '../../Model'
+import { formatCurrency } from '../../util'
+import TileButton from '../TileButton'
 
 interface Props {
   business: Model.Business
@@ -22,11 +24,17 @@ const HireManagerButton: React.FC<Props> = props => {
     }
   }
 
-  return business.hasManager ? (
-    <span>Hired a manager!</span>
-  ) : canHireManager ? (
-    <button onClick={hireManager}>Hire a manager</button>
-  ) : null
+  return (
+    <TileButton
+      disabled={!canHireManager}
+      onClick={hireManager}
+      role="tertiary"
+    >
+      <b>HIRE</b>
+      <span>{formatCurrency(business.managerPrice)}</span>
+      <b>MANAGER</b>
+    </TileButton>
+  )
 }
 
 export default HireManagerButton
