@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/adventure-capitali-ts/static/css/main.4a434aff.chunk.css",
+    "main.css": "/adventure-capitali-ts/static/css/main.6b0f1771.chunk.css",
     "main.js": "/adventure-capitali-ts/static/js/main.a201d3f5.chunk.js",
     "main.js.map": "/adventure-capitali-ts/static/js/main.a201d3f5.chunk.js.map",
     "runtime-main.js": "/adventure-capitali-ts/static/js/runtime-main.228e47b0.js",
@@ -8,15 +8,15 @@
     "static/js/2.1df4d760.chunk.js": "/adventure-capitali-ts/static/js/2.1df4d760.chunk.js",
     "static/js/2.1df4d760.chunk.js.map": "/adventure-capitali-ts/static/js/2.1df4d760.chunk.js.map",
     "index.html": "/adventure-capitali-ts/index.html",
-    "precache-manifest.cc77e61b059e2819085df172280741a7.js": "/adventure-capitali-ts/precache-manifest.cc77e61b059e2819085df172280741a7.js",
+    "precache-manifest.42f4829fd4e82dcb3b640b0aff82dd74.js": "/adventure-capitali-ts/precache-manifest.42f4829fd4e82dcb3b640b0aff82dd74.js",
     "service-worker.js": "/adventure-capitali-ts/service-worker.js",
-    "static/css/main.4a434aff.chunk.css.map": "/adventure-capitali-ts/static/css/main.4a434aff.chunk.css.map",
+    "static/css/main.6b0f1771.chunk.css.map": "/adventure-capitali-ts/static/css/main.6b0f1771.chunk.css.map",
     "static/js/2.1df4d760.chunk.js.LICENSE": "/adventure-capitali-ts/static/js/2.1df4d760.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.228e47b0.js",
     "static/js/2.1df4d760.chunk.js",
-    "static/css/main.4a434aff.chunk.css",
+    "static/css/main.6b0f1771.chunk.css",
     "static/js/main.a201d3f5.chunk.js"
   ]
 }
