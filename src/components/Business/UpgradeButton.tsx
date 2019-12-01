@@ -1,5 +1,6 @@
 import React from 'react'
 import * as Model from '../../Model'
+import * as action from '../../action'
 import { formatCurrency } from '../../util'
 import BouncyLabel from '../BouncyLabel'
 import TileButton from '../TileButton'
@@ -24,7 +25,7 @@ const UpgradeButton: React.FC<Props> = props => {
 
   function upgrade() {
     if (canUpgrade) {
-      dispatch({ type: 'upgrade-business', index, multiplier, price })
+      dispatch(action.upgradeBusiness({ index, multiplier, price }))
     }
   }
 

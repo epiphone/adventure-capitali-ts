@@ -1,5 +1,6 @@
 import React from 'react'
 import * as Model from '../../Model'
+import * as action from '../../action'
 import { formatCurrency } from '../../util'
 import TileButton from '../TileButton'
 import './index.css'
@@ -17,12 +18,7 @@ const UnboughtBusiness: React.FC<Props> = props => {
 
   function buy() {
     if (canBuy) {
-      dispatch({
-        type: 'upgrade-business',
-        index,
-        multiplier: 1,
-        price: business.price
-      })
+      dispatch(action.buyBusiness(index))
     }
   }
 

@@ -26,6 +26,24 @@ function finishCollectingIncome(index: number): Thunk {
   }
 }
 
+export function buyBusiness(index: number): Thunk {
+  return (dispatch, getState) => {
+    const business = getState().businesses[index]
+    dispatch(upgradeBusiness({ index, multiplier: 1, price: business.price }))
+  }
+}
+
+export function upgradeBusiness(properties: {
+  index: number
+  multiplier: number
+  price: number
+}): Action {
+  return {
+    type: 'upgrade-business',
+    ...properties
+  }
+}
+
 export function hireManager(index: number): Thunk {
   return (dispatch, getState) => {
     dispatch({ type: 'hire-manager', index })
