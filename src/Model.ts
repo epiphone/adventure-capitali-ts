@@ -25,6 +25,7 @@ export type Action =
     }
   | { type: 'hire-manager'; index: number }
   | { type: 'toggle-upgrade-multiplier' }
+  | { type: 'hydrate-state'; state: State }
 
 export type Dispatch = ReactDispatch<Action | Thunk<State, Action>>
 

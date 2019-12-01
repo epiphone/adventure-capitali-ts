@@ -68,6 +68,9 @@ const reducer: Reducer<Model.State, Model.Action> = (
         draft.upgradeMultiplier = UPGRADE_MULTIPLIER_LEVELS[nextIndex]
         break
       }
+      case 'hydrate-state': {
+        return action.state
+      }
     }
   })
 
