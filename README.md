@@ -1,4 +1,6 @@
 # adventure-capitali-ts
+![](https://github.com/epiphone/adventure-capitali-ts/workflows/CI/badge.svg)
+
 Simple React-based implementation of the Adventure Capitalist game
 
 ## Setup

@@ -1,12 +1,14 @@
 {
   "name": "adventure-capitali-ts",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "http://epiphone.github.io/adventure-capitali-ts",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "lint": "eslint src/**/*.ts src/**/*.tsx"
+    "lint": "eslint src/**/*.ts src/**/*.tsx",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -45,6 +47,7 @@
     "@types/react": "16.9.13",
     "@types/react-dom": "16.9.4",
     "eslint-plugin-prettier": "^3.1.1",
+    "gh-pages": "^2.1.1",
     "prettier": "^1.19.1",
     "react-scripts": "^3.3.0-next.62",
     "typescript": "3.7.2"
