@@ -22,7 +22,11 @@ const CollectIncomeButton: React.FC<Props> = props => {
   }
 
   return (
-    <TileButton disabled={!canCollectIncome} onClick={collectIncome}>
+    <TileButton
+      disabled={!canCollectIncome}
+      onClick={collectIncome}
+      progress={business.collectingIncome}
+    >
       {business.hasManager ? (
         <>
           <h2>{formatCurrency(business.level * business.income)}</h2>

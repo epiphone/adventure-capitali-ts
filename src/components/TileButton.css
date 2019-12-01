@@ -36,7 +36,33 @@
   background: #ff76e9;
 }
 
-.TileButton-disabled {
+.TileButton-disabled:not(.TileButton-progress) {
   cursor: not-allowed;
   opacity: 0.6;
+}
+
+.TileButton-progress {
+  cursor: not-allowed;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 0.7rem 0.7rem;
+  animation: progress-bar-stripes 0.5s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 0.7rem 0;
+  }
+
+  to {
+    background-position:  0 0;
+  }
 }
