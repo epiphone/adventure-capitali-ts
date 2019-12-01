@@ -1,0 +1,42 @@
+.TileButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.TileButton-primary {
+  color: white;
+  background: #75f152;
+}
+
+.TileButton-primary:hover:not(.TileButton-disabled) {
+  background: #3fff07;
+}
+
+.TileButton-secondary {
+  color: #767530;
+  background: #fffc2c;
+}
+
+.TileButton-secondary:hover:not(.TileButton-disabled) {
+  background: #faff6a;
+}
+
+.TileButton-tertiary {
+  color: white;
+  background: #ff4ee3;
+}
+
+.TileButton-tertiary:hover:not(.TileButton-disabled) {
+  background: #ff76e9;
+}
+
+.TileButton-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
