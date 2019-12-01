@@ -9,7 +9,9 @@ interface Props {
 const UpgradeMultiplier: React.FC<Props> = ({ dispatch, value }) => {
   return (
     <button onClick={() => dispatch({ type: 'toggle-upgrade-multiplier' })}>
-      x{value}
+      Buy
+      <h3>{value === 'max' ? 'Max available' : <>x{value}</>}</h3>
+      stores
     </button>
   )
 }
