@@ -1,0 +1,22 @@
+.Businesses {
+  display: flex;
+}
+
+.Businesses > div {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  margin: 0 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .Businesses {
+    display: block;
+  }
+
+  .Businesses > div {
+    margin: 0;
+  }
+
+}
