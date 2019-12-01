@@ -36,7 +36,8 @@ const Business: React.FC<Props> = ({ state, dispatch, index }) => {
       {business.name} | level: {business.level}
       <UpgradeButton dispatch={dispatch} index={index} state={state} />
       <button disabled={!canCollectIncome} onClick={collectIncome}>
-        Collect income ({business.level * business.income})
+        Collect income ${business.level * business.income}, (
+        {business.incomeCooldownDuration}ms)
       </button>
       {business.hasManager ? (
         <span>Hired a manager!</span>

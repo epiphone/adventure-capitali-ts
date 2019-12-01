@@ -1,5 +1,5 @@
 import { Action, PRICE_LEVEL_MULTIPLIER, State } from './Model'
-import reducer from './reducer'
+import reducer, { INCOME_SPEED_DOUBLING_THRESHOLDS } from './reducer'
 
 const state: State = {
   capital: 10,
@@ -53,6 +53,38 @@ describe('upgrade business', () => {
     )
     expect(newState.businesses[0].price).toEqual(
       Math.round(action.price * PRICE_LEVEL_MULTIPLIER)
+    )
+    expect(newState.businesses[0].incomeCooldownDuration).toEqual(
+      state.businesses[0].incomeCooldownDuration
+    )
+  })
+
+  it('doubles income collection speed after passing an upgrade threshold', () => {
+    const action: Action = {
+      type: 'upgrade-business',
+      index: 1,
+      multiplier: 25,
+      price: 0
+    }
+    const newState = reducer(state, action)
+
+    expect(newState.businesses[1].incomeCooldownDuration).toEqual(
+      state.businesses[1].incomeCooldownDuration / 2
+    )
+  })
+
+  it('doubles income collection speed multiple times when passing multiple upgrade thresholds', () => {
+    const thresholdsPassed = 4
+    const action: Action = {
+      type: 'upgrade-business',
+      index: 1,
+      multiplier: INCOME_SPEED_DOUBLING_THRESHOLDS[thresholdsPassed - 1],
+      price: 0
+    }
+    const newState = reducer(state, action)
+
+    expect(newState.businesses[1].incomeCooldownDuration).toEqual(
+      state.businesses[1].incomeCooldownDuration / Math.pow(2, thresholdsPassed)
     )
   })
 })
